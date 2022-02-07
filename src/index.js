@@ -39,50 +39,33 @@ let curWeatherData=null;
 let blend={v:0};
 
 function loadTextures(){
-  loadImages([
-    {name:"dropAlpha",src:"img/drop-alpha.png"},
-    {name:"dropColor",src:"img/drop-color.png"},
+    textureRainFg = document.getElementById("texture-rain-fg");
+    textureRainBg = document.getElementById("texture-rain-bg");
 
-    {name:"textureRainFg",src:"img/weather/texture-rain-fg.png"},
-    {name:"textureRainBg",src:"img/weather/texture-rain-bg.png"},
+    textureFalloutFg = document.getElementById("texture-fallout-fg");
+    textureFalloutBg = document.getElementById("texture-fallout-bg");
 
-    {name:"textureStormLightningFg",src:"img/weather/texture-storm-lightning-fg.png"},
-    {name:"textureStormLightningBg",src:"img/weather/texture-storm-lightning-bg.png"},
+    textureStormLightningFg = document.getElementById("texture-storm-lightning-fg");
+    textureStormLightningBg = document.getElementById("texture-storm-lightning-bg");
 
-    {name:"textureFalloutFg",src:"img/weather/texture-fallout-fg.png"},
-    {name:"textureFalloutBg",src:"img/weather/texture-fallout-bg.png"},
+    textureSunFg = document.getElementById("texture-sun-fg");
+    textureSunBg = document.getElementById("texture-sun-bg");
 
-    {name:"textureSunFg",src:"img/weather/texture-sun-fg.png"},
-    {name:"textureSunBg",src:"img/weather/texture-sun-bg.png"},
+    textureDrizzleFg = document.getElementById("texture-drizzle-fg");
+    textureDrizzleBg = document.getElementById("texture-drizzle-bg");
 
-    {name:"textureDrizzleFg",src:"img/weather/texture-drizzle-fg.png"},
-    {name:"textureDrizzleBg",src:"img/weather/texture-drizzle-bg.png"},
-  ]).then((images)=>{
-    textureRainFg = images.textureRainFg.img;
-    textureRainBg = images.textureRainBg.img;
-
-    textureFalloutFg = images.textureFalloutFg.img;
-    textureFalloutBg = images.textureFalloutBg.img;
-
-    textureStormLightningFg = images.textureStormLightningFg.img;
-    textureStormLightningBg = images.textureStormLightningBg.img;
-
-    textureSunFg = images.textureSunFg.img;
-    textureSunBg = images.textureSunBg.img;
-
-    textureDrizzleFg = images.textureDrizzleFg.img;
-    textureDrizzleBg = images.textureDrizzleBg.img;
-
-    dropColor = images.dropColor.img;
-    dropAlpha = images.dropAlpha.img;
+    dropColor = document.getElementById("drop-color");
+    dropAlpha = document.getElementById("drop-alpha");
 
     init();
-  });
 }
-loadTextures();
+
+document.addEventListener('DOMContentLoaded', function() {
+  loadTextures();
+}, false);
 
 function init(){
-  canvas=document.querySelector('#container');
+  canvas=document.querySelector('#canvas-container');
 
   let dpi=window.devicePixelRatio;
   canvas.width=window.innerWidth*dpi;
